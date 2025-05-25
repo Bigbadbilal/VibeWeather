@@ -71,7 +71,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 👨‍💻 Author
 
-Your Name
+Bilal Khan
 - GitHub: [@bigbadbilal](https://github.com/bigbadbilal)
 
 ---
