@@ -71,8 +71,8 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 👨‍💻 Author
 
-Bilal
+Your Name
 - GitHub: [@bigbadbilal](https://github.com/bigbadbilal)
 
 ---
-⭐️ Don't forget to star this repo if you find it useful! 
+⭐️ Don't forget to star this repo if you find it useful!
