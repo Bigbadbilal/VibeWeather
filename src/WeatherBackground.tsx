@@ -14,43 +14,6 @@ const WeatherBackground: React.FC<WeatherBackgroundProps> = ({ weatherMain, isDa
   const isRain = weatherMain === 'rain' || (desc.includes('rain') && !desc.includes('drizzle'));
   const isHeavyRain = isRain && (desc.includes('heavy') || desc.includes('intensity'));
 
-  // Apple-style rain: thin, vertical, semi-transparent lines with a soft fade
-  const renderAppleRain = (count: number, heavy: boolean = false) => (
-    <>
-      {[...Array(count)].map((_, i) => {
-        // Parallax: slower drops in the back, faster in the front
-        const layer = i % 3;
-        const width = layer === 0 ? 2.5 : layer === 1 ? 3.5 : 4.5;
-        const length = heavy ? (layer === 0 ? 48 : layer === 1 ? 64 : 80) : (layer === 0 ? 32 : layer === 1 ? 44 : 56);
-        const opacity = layer === 0 ? 0.45 : layer === 1 ? 0.65 : 0.85;
-        const duration = heavy
-          ? (layer === 0 ? 1.1 : layer === 1 ? 0.8 : 0.6)
-          : (layer === 0 ? 1.7 : layer === 1 ? 1.2 : 0.9);
-        const left = Math.random() * 100;
-        const top = Math.random() * 100;
-        return (
-          <motion.div
-            key={i}
-            className="absolute"
-            style={{
-              width,
-              height: length,
-              left: `${left}%`,
-              top: `${top}%`,
-              opacity,
-              background: 'linear-gradient(180deg, #e3f0ff 0%, #b3d8ff 60%, #b3d8ff 100%)',
-              borderRadius: 9999,
-              pointerEvents: 'none',
-              transform: `rotate(${layer === 2 ? 16 : layer === 1 ? 10 : 5}deg)`
-            }}
-            animate={{ y: [0, heavy ? 180 : 120] }}
-            transition={{ duration, repeat: Infinity, delay: Math.random() * duration }}
-          />
-        );
-      })}
-    </>
-  );
-
   switch (true) {
     case weatherMain === 'thunderstorm':
       return (
@@ -69,15 +32,15 @@ const WeatherBackground: React.FC<WeatherBackgroundProps> = ({ weatherMain, isDa
             />
           </AnimatePresence>
           {/* Rain effect for thunderstorm */}
-          <AppleRainEffect heavy={true} />
-          <AppleRainEffect heavy={true} backRow={true} />
+          <AppleRainEffect />
+          <AppleRainEffect backRow={true} />
         </div>
       );
     case isHeavyRain:
       return (
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <AppleRainEffect heavy={true} />
-          <AppleRainEffect heavy={true} backRow={true} />
+          <AppleRainEffect />
+          <AppleRainEffect backRow={true} />
         </div>
       );
     case isRain:

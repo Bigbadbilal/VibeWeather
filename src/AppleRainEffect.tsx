@@ -1,12 +1,11 @@
 import React from 'react';
 
 interface AppleRainEffectProps {
-  heavy?: boolean;
   backRow?: boolean;
   splat?: boolean;
 }
 
-const AppleRainEffect: React.FC<AppleRainEffectProps> = ({ heavy = false, backRow = false, splat = false }) => {
+const AppleRainEffect: React.FC<AppleRainEffectProps> = ({ backRow = false, splat = false }) => {
   const drops: JSX.Element[] = [];
   let increment = 0;
   while (increment < 100) {

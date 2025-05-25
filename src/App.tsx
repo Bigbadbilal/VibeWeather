@@ -32,7 +32,6 @@ interface WeatherData {
 function App() {
   const [city, setCity] = useState('London')
   const [searchCity, setSearchCity] = useState('London')
-  const [weather, setWeather] = useState<WeatherData | null>(null)
   const [lastWeather, setLastWeather] = useState<WeatherData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -47,7 +46,6 @@ function App() {
       try {
         setLoading(true)
         const response = await axios.get(WEATHER_API_URL)
-        setWeather(response.data as WeatherData)
         setLastWeather(response.data as WeatherData)
         setError('')
         const now = Math.floor(Date.now() / 1000)
