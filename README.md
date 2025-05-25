@@ -4,7 +4,7 @@ A modern, sleek weather dashboard built with React, TypeScript, and Vite. Get re
 
 ## ✨ Features
 
-- 🌡️ Realtime weather data
+- 🌡️ Real-time weather data
 - 📍 Location-based weather updates
 - 🎨 Modern and responsive design
 - ⚡ Fast and efficient performance
@@ -20,11 +20,26 @@ A modern, sleek weather dashboard built with React, TypeScript, and Vite. Get re
 - 🔍 ESLint
 - 🛠️ TypeScript ESLint
 
+## 🔑 API Key Setup
+
+1. Get your API key from [OpenWeatherMap](https://openweathermap.org/api)
+2. Create a `.env` file in the root directory:
+```bash
+touch .env
+```
+
+3. Add your API key to the `.env` file:
+```env
+VITE_WEATHER_API_KEY=your_api_key_here
+```
+
+4. Never commit your `.env` file! It's already in `.gitignore`
+
 ## 🛠️ Getting Started
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/vibe-weather.git
+git clone https://github.com/bigbadbilal/vibe-weather.git
 ```
 
 2. Install dependencies:
@@ -52,12 +67,12 @@ MIT License - feel free to use this project for your own purposes!
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/vibe-weather/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/bigbadbilal/vibe-weather/issues).
 
 ## 👨‍💻 Author
 
 Your Name
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@bigbadbilal](https://github.com/bigbadbilal)
 
 ---
 ⭐️ Don't forget to star this repo if you find it useful!
