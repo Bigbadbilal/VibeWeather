@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Poppins', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  color: white;
+}
+
+h1, h2, h3, .heading {
+  font-family: 'Montserrat', 'Poppins', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+}
+
+.bg-accent {
+  background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
+  color: #2d2d2d;
+}
+
+.text-accent {
+  color: #ffb347;
+}
+
+/* Apple-style rain effect CSS */
+.rain {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.rain.back-row {
+  z-index: 1;
+  bottom: 60px;
+  opacity: 0.5;
+}
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 15px;
+  height: 120px;
+  pointer-events: none;
+  animation: drop 0.5s linear infinite;
+  opacity: 0.85;
+}
+@keyframes drop {
+  0% { transform: translateY(0vh); }
+  75% { transform: translateY(90vh); }
+  100% { transform: translateY(90vh); }
+}
+.stem {
+  width: 1px;
+  height: 60%;
+  margin-left: 7px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.45));
+  animation: stem 0.5s linear infinite;
+  opacity: 0.85;
+}
+@keyframes stem {
+  0% { opacity: 1; }
+  65% { opacity: 1; }
+  75% { opacity: 0; }
+  100% { opacity: 0; }
+}
+.splat {
+  width: 15px;
+  height: 10px;
+  border-top: 2px dotted rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(0);
+  animation: splat 0.5s linear infinite;
+  display: none;
+}
+@keyframes splat {
+  0% { opacity: 1; transform: scale(0); }
+  80% { opacity: 1; transform: scale(0); }
+  90% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.5); }
+} 
