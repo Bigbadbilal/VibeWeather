@@ -20,6 +20,26 @@ A modern, sleek weather dashboard built with React, TypeScript, and Vite. Get re
 - 🔍 ESLint
 - 🛠️ TypeScript ESLint
 
+## 📁 Project Structure
+
+```
+vibe-weather/
+├── src/                    # Source files
+│   ├── App.tsx            # Main application component
+│   ├── main.tsx           # Application entry point
+│   ├── index.css          # Global styles
+│   ├── vite-env.d.ts      # Vite environment types
+│   ├── WeatherBackground.tsx  # Weather background effects
+│   └── AppleRainEffect.tsx    # Rain animation component
+├── public/                # Static assets
+├── index.html            # HTML entry point
+├── package.json          # Project dependencies
+├── vite.config.ts        # Vite configuration
+├── tailwind.config.js    # Tailwind CSS configuration
+├── postcss.config.js     # PostCSS configuration
+└── tsconfig.json         # TypeScript configuration
+```
+
 ## 🔑 API Key Setup
 
 1. Get your API key from [OpenWeatherMap](https://openweathermap.org/api)
@@ -71,7 +91,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 👨‍💻 Author
 
-Bilal Khan
+Bilal
 - GitHub: [@bigbadbilal](https://github.com/bigbadbilal)
 
 ---
