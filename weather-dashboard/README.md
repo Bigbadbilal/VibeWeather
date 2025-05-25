@@ -4,7 +4,7 @@ A modern, sleek weather dashboard built with React, TypeScript, and Vite. Get re
 
 ## ✨ Features
 
-- 🌡️ Real-time weather data
+- 🌡️ Realtime weather data
 - 📍 Location-based weather updates
 - 🎨 Modern and responsive design
 - ⚡ Fast and efficient performance
