@@ -19,7 +19,6 @@ const generateRainPositions = (isBackRow: boolean) => {
   let increment = 0;
   // Create more drops for denser rain
   while (increment < 200) {
-    const randoHundo = Math.floor(Math.random() * (98 - 1 + 1) + 1);
     const randoFiver = Math.floor(Math.random() * (5 - 2 + 1) + 2);
     increment += randoFiver;
     
