@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AppleRainEffect from './AppleRainEffect';
+
+// Generate stable star positions
+const generateStarPositions = () => {
+  return Array.from({ length: 20 }, () => ({
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    delay: Math.random() * 2,
+    duration: 2 + Math.random() * 2
+  }));
+};
+
+// Store star positions outside component to keep them stable
+const starPositions = generateStarPositions();
 
 interface WeatherBackgroundProps {
   weatherMain: string;
@@ -13,6 +26,19 @@ const WeatherBackground: React.FC<WeatherBackgroundProps> = ({ weatherMain, isDa
   const desc = weatherDescription ? weatherDescription.toLowerCase() : '';
   const isRain = weatherMain === 'rain' || (desc.includes('rain') && !desc.includes('drizzle'));
   const isHeavyRain = isRain && (desc.includes('heavy') || desc.includes('intensity'));
+
+  // Memoize stars to prevent re-renders
+  const stars = useMemo(() => (
+    starPositions.map((pos, i) => (
+      <motion.div
+        key={i}
+        className="absolute bg-white rounded-full opacity-80"
+        style={{ width: 2, height: 2, left: pos.left, top: pos.top }}
+        animate={{ opacity: [0.5, 1, 0.5] }}
+        transition={{ duration: pos.duration, repeat: Infinity, delay: pos.delay }}
+      />
+    ))
+  ), []);
 
   switch (true) {
     case weatherMain === 'thunderstorm':
@@ -100,15 +126,7 @@ const WeatherBackground: React.FC<WeatherBackgroundProps> = ({ weatherMain, isDa
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 4, repeat: Infinity }}
           />
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute bg-white rounded-full opacity-80"
-              style={{ width: 2, height: 2, left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
-            />
-          ))}
+          {stars}
         </div>
       );
     default:
