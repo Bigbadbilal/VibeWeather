@@ -60,12 +60,16 @@ h1, h2, h3, .heading {
   width: 2px;
   height: 100px;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0;
+  transform: translateY(-100%);
 }
 
 @keyframes drop {
   0% { 
-    transform: translateY(0vh);
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
     opacity: 0.6;
   }
   85% { 
@@ -83,11 +87,14 @@ h1, h2, h3, .heading {
   height: 100%;
   margin-left: 0.5px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.6));
-  opacity: 0.6;
+  opacity: 0;
 }
 
 @keyframes stem {
   0% { 
+    opacity: 0;
+  }
+  10% {
     opacity: 0.6;
   }
   85% { 

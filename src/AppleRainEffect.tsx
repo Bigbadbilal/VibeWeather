@@ -28,14 +28,17 @@ const generateRainPositions = (isBackRow: boolean) => {
     
     // Randomly decide if this drop should create a splat (about 30% of drops)
     const shouldSplat = Math.random() < 0.3;
+
+    // Create more varied initial delays
+    const initialDelay = (Math.random() * 3).toFixed(2);
     
     drops.push({
       ...(isBackRow 
         ? { right: `${increment}%` }
         : { left: `${increment}%` }
       ),
-      bottom: `${randoFiver + randoFiver - 1 + 100}%`,
-      animationDelay: `0.${randoHundo}s`,
+      bottom: '100%', // Always start from the top
+      animationDelay: `${initialDelay}s`,
       animationDuration: `${duration}s`,
       shouldSplat
     });
